@@ -1,0 +1,60 @@
+/**
+ * Place your custom styles here.
+
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background: url(../images/banner-bg.jpg) no-repeat;
+    background-size:cover;
+    min-height: 100vh;
+
+}
+#user-login-form {
+    text-align: left;
+    color: #fff;
+}
+input, textarea, select, ol, ul, li, a, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none!important;
+    outline: none!important;
+}
+
+a:hover{
+    -webkit-transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s;
+    transition: all .4s ease 0s;
+    text-decoration: none;
+    outline: none !important;
+}
+.intromain {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 103px #1994af inset;
+    float: left;
+    margin: 50px 0;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+.intromain img{ max-width:100%; margin-top:-40px; }
+.intromain h2{ color:#fff; text-transform:uppercase; margin:20px 0px; font-size:28px; }
+.intromain h2 b{ font-weight:900;color:#000; }
+.intromain hr{ width:30%;}
+.intromain p{ font-size:18px; color:#fff;  margin:20px 0px; }
+footer{ position:absolute; left:0; right:0; background:#065877; padding:15px 0px; bottom:0;}
+footer ul{ float:left; margin:5px 0;}
+footer ul li{ float:left; margin-right:10px;}
+footer ul li a{ color:#fff; font-size:13px;}
+footer ul li a:hover{ color:#179CBE;}
+footer p{ float:right; margin:5px 0; color:#fff;}
+/* Responsive css */
+@media (max-width: 767px) {
+}
+@media (max-width: 480px) {
+}
