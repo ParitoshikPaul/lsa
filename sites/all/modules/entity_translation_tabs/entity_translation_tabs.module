@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file entity_translation_tabs.module
+ * This module gives you a tab for each language on entity translation nodes.
+ */
+
+/**
+ * Implements hook_menu_alter().
+ */
+function entity_translation_tabs_menu_alter(&$items) {
+  $items['node/%node/edit']['weight'] = 3;
+  $items['node/%node/edit']['title'] = t('Source');
+  // It would be nice to hide the translate tab when it is no longer needed
+  // but this causes problems with the entity_translation module.
+}
+
+/**
+ * Implements hook_menu().
+ */
+function entity_translation_tabs_menu() {
+
+  $languages = language_list('enabled');
+
+  // Eventually it would be nice to replace this series of menu entries with
+  // the same code as the entity_translation module's hook_menu code to allow
+  // us to show the tabs in taxonomy, user, and other types of entities.
+  foreach ($languages[1] as $key => $value) {
+    $items['node/%node/' . "$key"] = array(
+      'title' => 'Edit' . ' [' . $value->name . ']',
+      'page callback' => 'entity_translation_tabs_switcher',
+      'page arguments' => array(1, 2),
+      'access callback' => 'node_access',
+      'access arguments' => array('update', 1),
+      'weight' => 0,
+      'type' => MENU_LOCAL_TASK,
+      'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    );
+  }
+  return $items;
+}
+
+/**
+ * Redirection logic to determine where the tabs will take you.
+ */
+function entity_translation_tabs_switcher($node, $lang) {
+
+  // This switcher currently does a drupal_goto for each appropriate case, but
+  // the intended functionality is to load the entity translation form directly
+  // on each applicable tab. It will require loading the appropraite inc files
+  // and then to load the entity_translation_edit_form with all the parameters.
+  $nid = $node->nid;
+  $und = FALSE;
+  $result = db_query(
+    "SELECT language, source FROM {entity_translation} WHERE entity_id=:eid",
+    array(
+      ':eid' => $nid,
+    ));
+  foreach ($result as $record) {
+    // Source is not set, therefore it is source.
+    if (sizeof($record->source) == 1) {
+      $source = $record->language;
+    }
+    // Source is undefined, therefore edit original.
+    if ($record->language == 'und') {
+      $und = TRUE;
+    }
+    // Translation exists, let's go there.
+    if ($record->language == $lang) {
+      drupal_goto('node/' . $nid . '/edit/' . $lang);
+    }
+  }
+  if ($und != TRUE) {
+    drupal_set_message(t('This is a new translation, please translate it now.'), 'warning');
+    drupal_goto('node/' . $nid . '/edit/add/' . $source . "/" . $lang);
+  }
+  else {
+    drupal_set_message(t('This content is set to display on all languages.
+      Set the language of this page to make it translatable.'), 'warning');
+    drupal_goto('node/' . $nid . '/edit');
+  }
+  return;
+}

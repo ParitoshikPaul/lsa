@@ -1,0 +1,9 @@
+name = LSA Api
+description = LSA Modules for third party applications.
+package = Custom
+core = 7.x
+dependencies[] = services
+dependencies[] = rest_server
+
+files[] = lsa_api.module
+files[] = includes/lsa_language.services.inc

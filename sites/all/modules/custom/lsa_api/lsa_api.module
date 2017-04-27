@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_services_resources().
+ * Create service resource for APIs to return the necessary json data.
+ */
+function lsa_api_services_resources()
+{
+    $resources = array();
+    module_load_include('inc', 'lsa_api', 'includes/lsa_language.services');
+    $resources += lsa_api_services_resource();
+    return $resources;
+}
+
+
+
+
+
+
+

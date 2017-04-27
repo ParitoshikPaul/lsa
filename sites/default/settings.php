@@ -250,8 +250,8 @@ $databases = array (
     'default' => 
     array (
       'database' => 'devlsa',
-      'username' => 'root',
-      'password' => '',
+      'username' => 'lsa',
+      'password' => 'Samdam123!',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
@@ -290,7 +290,7 @@ $update_free_access = FALSE;
  *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  *
  */
-$drupal_hash_salt = 'StzK4cW4imddkKj6pYe-nqNfNydWg_yImnqX1_xBIMI';
+$drupal_hash_salt = 'ysFGX6-2p_DwRMZ2JbJe6jI5B_dBYwgKUTEL-NOUImI';
 
 /**
  * Base URL (optional).

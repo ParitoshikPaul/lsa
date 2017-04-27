@@ -58,3 +58,50 @@ footer p{ float:right; margin:5px 0; color:#fff;}
 }
 @media (max-width: 480px) {
 }
+/*
+div#admin-toolbar.vertical div.admin-tab {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 8px!important;
+    padding-left: 9px!important;
+    padding-right: 9px!important;
+    width: 195px;
+    padding-bottom: 18px!important;
+    padding-top: 12px!important;
+}
+div#admin-toolbar div.admin-tab, div#admin-toolbar div.admin-tab span, div#admin-toolbar div.admin-tab a {
+    list-style: none;
+    background: transparent;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px!important;
+}
+div#admin-toolbar div.block-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 45px!important;
+    left: 0!important;
+    bottom: 10px;
+    right: 0!important;
+}
+#admin-toolbar ul.menu, #admin-toolbar ul.menu ul, #admin-toolbar ul.menu li, #admin-toolbar ul.menu li a {
+    list-style: none;
+    background: transparent;
+    padding: 3px;
+    margin: 0px;
+    border: 0px;
+    font-size: 15px!important;
+}
+#admin-toolbar ul.menu, #admin-toolbar ul.menu ul, #admin-toolbar ul.menu li, #admin-toolbar ul.menu li a {
+    padding: 0px 5px 7px 15px!important;
+    margin-top: 5px;
+    margin-bottom: 13px;
+}*/
+.admin-blocks {
+    width: 0px !important;
+    display: none;
+}
+body.admin-expanded.admin-vertical.admin-nw, body.admin-expanded.admin-vertical.admin-sw {
+     margin-left: 0px;
+}

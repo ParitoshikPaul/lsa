@@ -1,0 +1,14 @@
+name = Entity translation tabs
+description = Creates a translation tab for each language on nodes.
+core = 7.x
+package = Multilingual
+dependencies[] = locale
+dependencies[] = entity_translation
+files[] = entity_translation_tabs.module
+
+; Information added by Drupal.org packaging script on 2016-04-09
+version = "7.x-1.1"
+core = "7.x"
+project = "entity_translation_tabs"
+datestamp = "1460204042"
+
