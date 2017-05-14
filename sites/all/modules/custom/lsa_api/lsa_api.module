@@ -8,7 +8,9 @@ function lsa_api_services_resources()
 {
     $resources = array();
     module_load_include('inc', 'lsa_api', 'includes/lsa_language.services');
+    module_load_include('inc', 'lsa_api', 'includes/business.services');
     $resources += lsa_api_services_resource();
+    $resources += lsa_api_business_services_resource();
     return $resources;
 }
 

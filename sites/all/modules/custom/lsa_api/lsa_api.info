@@ -7,3 +7,4 @@ dependencies[] = rest_server
 
 files[] = lsa_api.module
 files[] = includes/lsa_language.services.inc
+files[] = includes/business.services.inc
